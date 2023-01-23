@@ -11,8 +11,13 @@ class Person:
         return self.name
 
     def set_name(self, new_name):
-        self.name = new_name
+        if (self.__has_number(new_name)):
+            print("sorry person name cant have number")
 
+        self.name = new_name
+    def __has_number(self, string):
+        return "0" in string 
+    
     def get_summary(self):
         return f"Name: {self.name}, DOB: {self.date_of_birth}, Height: {self.height}"
         
@@ -27,3 +32,6 @@ a_person.set_name("Mostafa Al Mamun Fahim")
 print(a_person.get_summary())
 
 print(a_person.date_of_birth)
+
+a_person.set_name("0Fahim")
+print(a_person.name)
