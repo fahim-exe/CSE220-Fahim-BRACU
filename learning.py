@@ -34,4 +34,5 @@ print(a_person.get_summary())
 print(a_person.date_of_birth)
 
 a_person.set_name("0Fahim")
+a_person.name = "0Fahim"
 print(a_person.name)
