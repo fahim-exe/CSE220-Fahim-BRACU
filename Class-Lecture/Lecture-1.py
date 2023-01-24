@@ -50,6 +50,3 @@ print(left2)
 
 right1 = array.rightshift(new_arr)
 print(right1)
-
-
-
