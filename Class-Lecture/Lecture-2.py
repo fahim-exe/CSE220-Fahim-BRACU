@@ -1,11 +1,11 @@
-#in this lecture we learned shifts (leftshift, rightshift)
-#here we will do one shift for every array
+#in this lecture we will learned about the linear array
+#we also learned how to insert, delete element in linear array
 
 
-
-class Array:
+class Array():
     def __init__(self, src):
-        self.array = src
+        array = self.create_arr(src)
+        self.array = array
         
        
 
@@ -36,6 +36,9 @@ class Array:
         src[0] =None    
         self.src = src
         return src
+
+  
+
             
 
 
