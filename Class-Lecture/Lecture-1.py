@@ -1,4 +1,6 @@
 #in this lecture we learned shifts (leftshift, rightshift)
+#here we will do one shift for every array
+
 
 
 class Array():
@@ -16,6 +18,38 @@ class Array():
 
         return arr
 
+    def leftshift(self,src):
+        
+        for i in range(1, len(src)):
+            src[i-1]=src[i]
+        last_idx = -1
+        src[last_idx] =None    
+        
+        self.src = src
+        return src
+
+    def rightshift(self, src):
+        
+        for i in range(len(src)-1, 0, -1):
+            src[i]=src[i-1]
+        
+        src[0] =None    
+        self.src = src
+        return src
+            
+
+
 arr1 = [1,2,3,4,5,6]
 array = Array(arr1)
-print(array.create_arr())
+new_arr = array.create_arr()
+
+left1 = array.leftshift(new_arr)
+print(left1)
+left2 = array.leftshift(left1)
+print(left2)
+
+right1 = array.rightshift(new_arr)
+print(right1)
+
+
+
