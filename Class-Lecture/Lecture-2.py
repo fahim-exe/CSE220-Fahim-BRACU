@@ -31,7 +31,7 @@ class Circular_Array:
         
         return self.cir_arr
 
-    def idx_increase(self):
+    def __idx_increase(self):
         new_arr = [None]*(len(self.cir_arr)+1)
         for i in range(len(self.cir_arr)):
             new_arr[i] = self.cir_arr[i]
@@ -40,14 +40,16 @@ class Circular_Array:
         return self.cir_arr
 
     def insert_into_index(self, index, value):
-        arr = self.idx_increase()
-        print(arr)
+        arr = self.__idx_increase()
+        
                 
         for i in range(len(arr)-1, index, -1):
             arr[i]=arr[i-1]
         arr[index] = value
 
-        print(arr) 
+        self.cir_arr = arr
+        return self.cir_arr
+    
    
 
 arr = [1,2,3,4,5,6]
@@ -55,5 +57,5 @@ arr1 = Circular_Array(arr)
 arr1.right_rotate()
 arr1.right_rotate()
 arr1.left_rotate()
-arr1.insert_into_index(1, 100)
+print(arr1.insert_into_index(1, 100))
 
