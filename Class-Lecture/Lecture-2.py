@@ -39,7 +39,18 @@ class Circular_Array:
         
         return self.cir_arr
 
-    def insert_into_index(self, index, value):
+    def __idx_decrease(self):
+        arr = [None]*(len(self.cir_arr)-1)
+        for i in range(len(arr)):
+          arr[i] = self.cir_arr[i]
+
+        self.cir_arr = arr
+        return self.cir_arr    
+
+    def insert_into_index(self, index:int=None, value:int=None):
+        if index==None and value==None:
+          print("Please Insert at least Index or Index and Value")
+          return
         arr = self.__idx_increase()
         
                 
@@ -49,7 +60,18 @@ class Circular_Array:
 
         self.cir_arr = arr
         return self.cir_arr
-    
+    def remove_from_index(self, index:int=None):
+        self.cir_arr[index] = None
+        
+        for i in range(index+1, len(self.cir_arr)):
+          
+          self.cir_arr [i-1]=self.cir_arr[i]
+          self.cir_arr[i] = None
+        self.cir_arr = self.__idx_decrease()
+          
+
+        return self.cir_arr
+      
    
 
 arr = [1,2,3,4,5,6]
@@ -57,5 +79,5 @@ arr1 = Circular_Array(arr)
 arr1.right_rotate()
 arr1.right_rotate()
 arr1.left_rotate()
-print(arr1.insert_into_index(1, 100))
-
+print(arr1.insert_into_index(1))
+print(arr1.remove_from_index(1))
