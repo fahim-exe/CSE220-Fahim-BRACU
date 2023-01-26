@@ -30,6 +30,27 @@ person_list = [Person("Mostafa", 2002, 72),
                Person("Alucard", 1999, 89),
                Person("Chengsi", 1971, 86)]
 
-for person in person_list:
-  if person.get_year_of_birth() is not None and person.get_year_of_birth() >=1990:
-    print(person.get_summary())
+#for person in person_list:
+#if person.get_year_of_birth() is not None and person.get_year_of_birth() >=1990:
+#print(person.get_summary())
+
+
+class Student(Person):
+    def __init__(self, person_name: str, year_of_birth: int, email_id: str, student_id: str):
+        super().__init__(person_name, year_of_birth)
+        
+        self.sid = student_id
+        self.email = email_id
+
+    def get_summary(self):
+        return f"Name:{self.get_name()} Email: {self.email} Birth: {self.get_year_of_birth()}"
+
+
+student = Student("Mostafa Al Mamun Fahim", 1970, "hellofahim@gmail.com", "20101214")
+print(student.get_summary())
+student.set_name("Mostafa")
+print(student.get_summary())
+
+
+
+
