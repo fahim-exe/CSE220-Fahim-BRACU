@@ -1,12 +1,14 @@
 def method_name():
     print("A method")
 
-
 class Person:
     def __init__(self, person_name:str, year_of_birth:int, ht_inches:int=None):
         self.name = person_name
         self.date_of_birth = year_of_birth
         self.height = ht_inches
+         
+    def get_year_of_birth(self):
+      return self.date_of_birth
 
     def get_name(self):
         return self.name
@@ -20,20 +22,14 @@ class Person:
         return "0" in string 
     
     def get_summary(self):
-        return f"Name: {self.name}, DOB: {self.date_of_birth}, Height: {self.height}"
-        
-a_person = Person("Mostafa", "1990-09-19", "5feet 4 inches")
-b_person = Person("Robot", "2023-01-01", "6 feet")
+        return f"Name: {self.name}, DOB: {self.date_of_birth}, Height: {self.height if self.height is not None else 'Not given'}"
 
-method_name()
-print(a_person.get_summary())
-print(b_person.get_summary())
+person_list = [Person("Mostafa", 2002, 72),
+               Person("Al Mamun ", 1980, 100),
+               Person("Fahim", 1996),
+               Person("Alucard", 1999, 89),
+               Person("Chengsi", 1971, 86)]
 
-a_person.set_name("Mostafa Al Mamun Fahim")
-print(a_person.get_summary())
-
-print(a_person.date_of_birth)
-
-a_person.set_name("0Fahim")
-a_person.name = "0Fahim"
-print(a_person.name)
+for person in person_list:
+  if person.get_year_of_birth() is not None and person.get_year_of_birth() >=1990:
+    print(person.get_summary())
