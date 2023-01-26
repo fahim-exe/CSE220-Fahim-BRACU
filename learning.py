@@ -1,11 +1,12 @@
 def method_name():
     print("A method")
 
+
 class Person:
-    def __init__(self, name, dob, height):
-        self.name = name
-        self.date_of_birth = dob
-        self.height = height
+    def __init__(self, person_name:str, year_of_birth:int, ht_inches:int=None):
+        self.name = person_name
+        self.date_of_birth = year_of_birth
+        self.height = ht_inches
 
     def get_name(self):
         return self.name
