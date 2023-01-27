@@ -22,7 +22,8 @@ class Person:
         return "0" in string 
     
     def get_summary(self):
-        return f"Name: {self.name}, DOB: {self.date_of_birth}, Height: {self.height if self.height is not None else 'Not given'}"
+        pass
+        #return f"Name: {self.name}, DOB: {self.date_of_birth}, Height: {self.height if self.height is not None else 'Not given'}"
 
 person_list = [Person("Mostafa", 2002, 72),
                Person("Al Mamun ", 1980, 100),
@@ -43,14 +44,39 @@ class Student(Person):
         self.email = email_id
 
     def get_summary(self):
+        
         return f"Name:{self.get_name()} Email: {self.email} Birth: {self.get_year_of_birth()}"
 
 
-student = Student("Mostafa Al Mamun Fahim", 1970, "hellofahim@gmail.com", "20101214")
-print(student.get_summary())
-student.set_name("Mostafa")
-print(student.get_summary())
+    def __str__(self) -> str:
+        pass
+        #return self.get_summary()
+    #def __repr__(self) -> str:
+       #return self.get_summary()
+
+#student = Student("Mostafa Al Mamun Fahim", 1970, "hellofahim@gmail.com", "20101214")
+#print(student)
+#student.set_name("Mostafa")
+#print(student)
 
 
+class Teacher(Person):
+    def __init__(self, person_name: str, year_of_birth: int, department:str):
+        super().__init__(person_name, year_of_birth)
+        self.dept = department
+
+    def get_summary(self):
+        return f"{self.get_name()} is a Teacher"
+
+new_person_list = [
+    Person("Mostafa", 1990),
+    Student("S", 2000, "s@gmail.com", "stid"),
+    Teacher("T", 1980, "tid")
+]
+
+
+for p in new_person_list:
+    print(p.get_summary())
+    
 
 
